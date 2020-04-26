@@ -4,4 +4,3 @@ Cython==0.29.13
 pandas==0.25.3
 scikit-learn==0.21.3
 tensorflow==2.0.0-rc1
-zipfile
