@@ -2,32 +2,32 @@ from tensorflow.python.client import device_lib
 import tensorflow as tf
 import scipy.io as sio
 import numpy as np
-import zipfile 
+# import zipfile 
 import os
 
 
-def zipdir(path, ziph):
-    for root, dirs, files in os.walk(path):
-        for file in files:
-            ziph.write(os.path.join(root, file))
+# def zipdir(path, ziph):
+#     for root, dirs, files in os.walk(path):
+#         for file in files:
+#             ziph.write(os.path.join(root, file))
 
 
-def undzip(path):
-    folder_path = '/content/Model_ext'
-    with zipfile.ZipFile(path, 'r') as zip_ref:
-        zip_ref.extractall(folder_path)
+# def undzip(path):
+#     folder_path = '/content/Model_ext'
+#     with zipfile.ZipFile(path, 'r') as zip_ref:
+#         zip_ref.extractall(folder_path)
 
 
-def compress_model(modeldir='Trained/'):
-    z = zipfile.ZipFile('Model.zip', 'w')
-    zipdir(modeldir, z)
-    z.close()
+# def compress_model(modeldir='Trained/'):
+#     z = zipfile.ZipFile('Model.zip', 'w')
+#     zipdir(modeldir, z)
+#     z.close()
 
 
-def save_model_weights(model, model_name="NN", epochs=1):
-    model.save_weights("Trained/" + model_name + "/m{epoch:01d}.ckpt".format(epoch=epochs))
-    compress_model('Trained/')
-    return
+# def save_model_weights(model, model_name="NN", epochs=1):
+#     model.save_weights("Trained/" + model_name + "/m{epoch:01d}.ckpt".format(epoch=epochs))
+#     compress_model('Trained/')
+#     return
 
 
 def load_model_weight(path='Trained/CNNP1/m1.ckpt', ECG_SHAPE=(12, 4000, 1)):
